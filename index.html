@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>[test]地震情報</title>
+<title>地震情報</title>
 
 <style>
 body{
@@ -170,7 +170,7 @@ render(q);
 // =========================
 // 共通レンダリング
 // =========================
-function render(q){
+async function render(q){
 
 const eq = q.earthquake;
 const h = eq.hypocenter || {};
@@ -202,7 +202,7 @@ let magStr =
 
 // 津波更新
 if(Date.now()-tsunamiTimer>10000){
-fetchTsunami();
+await fetchTsunami();
 tsunamiTimer=Date.now();
 }
 
